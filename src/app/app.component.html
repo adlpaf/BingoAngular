@@ -314,9 +314,10 @@
   </div>
 
   <!-- Numbers -->
-  <div class="card-container">
-    <button (click)="newNumber()">New number</button>
-    <button (click)="cleanBoard()">Clear table</button>
+  <div class="card-container container">
+    <button class="btn btn-primary" (click)="newNumber()">New number</button>
+    &nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="cleanBoard()">Clear table</button>
   </div>
   <div class="card-container">
     <label style="color: black; font-size: larger;">{{ letter }}</label>
@@ -325,7 +326,7 @@
   </div>
   
   <div class="card-container">
-    <table>
+    <table class="table  table-striped">
       <thead>
         <tr>
           <th>B</th>
