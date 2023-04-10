@@ -27,6 +27,8 @@ export class AppComponent {
     this.g = [];
     this.o = [];
     this.bingo = [];
+    this.number = 0;
+    this.letter = '';
   }
 
   newNumber() {

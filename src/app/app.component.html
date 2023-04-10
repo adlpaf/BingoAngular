@@ -313,19 +313,36 @@
 
   </div>
 
-  <!-- Numbers -->
-  <div class="card-container container">
-    <button class="btn btn-primary" (click)="newNumber()">New number</button>
-    &nbsp;&nbsp;
-    <button class="btn btn-primary" (click)="cleanBoard()">Clear table</button>
+  <!-- Buttons -->
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <button class="btn btn-primary" (click)="newNumber()">New number</button>
+      </div>
+      <div class="col"></div>
+      <div class="col text-center">
+        <button class="btn btn-primary" (click)="cleanBoard()">Clear table</button>
+      </div>
+    </div>
   </div>
-  <div class="card-container">
-    <label style="color: black; font-size: larger;">{{ letter }}</label>
+
+  <!-- Numbers -->
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <label style="color: black; font-size: larger;">{{ letter }}</label>
+      </div>
+      <div class="col"></div>
+      <div class="col">
+        <label style="color: black; font-size: larger;">{{ number === 0 ? "" : number }}</label>
+      </div>
+      <div class="col"></div>
+    </div>
     &nbsp;
-    <label style="color: black; font-size: larger;">{{ number === 0 ? "" : number }}</label>
   </div>
   
-  <div class="card-container">
+  <div class="container">
     <table class="table  table-striped">
       <thead>
         <tr>
