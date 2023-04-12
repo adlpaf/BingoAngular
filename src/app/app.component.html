@@ -317,11 +317,19 @@
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <button class="btn btn-primary" (click)="newNumber()">New number</button>
+        <button [ngClass]="['btn', 'btn-primary', ( bingo.length >= typeOfBingoNumeric ? 'disabled' : '' )]" (click)="newNumber()">New number</button>
       </div>
-      <div class="col"></div>
       <div class="col text-center">
         <button class="btn btn-primary" (click)="cleanBoard()">Clear table</button>
+      </div>
+      <div class="col"></div>
+      <div class="col form-check">
+        <input type="radio" name="typeOfBingo" id="75Number" class="form-check-input" value="75" [(ngModel)]="typeOfBingo" (click)="changeTypeOfBingo('75')">
+        <label for="75Number" class="form-check-label">75</label>
+      </div>
+      <div class="col form-check">
+        <input type="radio" name="typeOfBingo" id="90Numbers" class="form-check-input" value="90" [(ngModel)]="typeOfBingo" (click)="changeTypeOfBingo('90')">
+        <label for="90Numbers" class="form-check-label">90</label>
       </div>
     </div>
   </div>
@@ -354,12 +362,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ,14, 15]">
+        <tr *ngFor="let i of arrayByColumn">
           <td [ngStyle]="{ 'color': searchArray(i) === undefined ? 'grey' : 'red' }">{{ i }}</td>
-          <td [ngStyle]="{ 'color': searchArray(i + 15) === undefined ? 'grey' : 'red' }">{{ i + 15 }}</td>
-          <td [ngStyle]="{ 'color': searchArray(i + 30) === undefined ? 'grey' : 'red' }">{{ i + 30 }}</td>
-          <td [ngStyle]="{ 'color': searchArray(i + 45) === undefined ? 'grey' : 'red' }">{{ i + 45 }}</td>
-          <td [ngStyle]="{ 'color': searchArray(i + 60) === undefined ? 'grey' : 'red' }">{{ i + 60 }}</td>
+          <td [ngStyle]="{ 'color': searchArray(i + (numberByColumn)) === undefined ? 'grey' : 'red' }">{{ i + (numberByColumn) }}</td>
+          <td [ngStyle]="{ 'color': searchArray(i + (numberByColumn * 2)) === undefined ? 'grey' : 'red' }">{{ i + (numberByColumn * 2) }}</td>
+          <td [ngStyle]="{ 'color': searchArray(i + (numberByColumn * 3)) === undefined ? 'grey' : 'red' }">{{ i + (numberByColumn * 3) }}</td>
+          <td [ngStyle]="{ 'color': searchArray(i + (numberByColumn * 4)) === undefined ? 'grey' : 'red' }">{{ i + (numberByColumn * 4) }}</td>
         </tr>
       </tbody>
     </table>
